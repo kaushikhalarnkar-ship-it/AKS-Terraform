@@ -13,9 +13,10 @@ pool:
 steps:
 
 - script: |
-    date -u
-    timedatectl status
-  displayName: Check agent time
+    sudo apt-get update
+    sudo apt-get install -y terraform
+    terraform version
+  displayName: Install Terraform
 - task: PipelineTerraformInstaller@1
   inputs:
     terraformVersion: '1.13.5'
