@@ -8,13 +8,12 @@ trigger: none
 
 pool:
   vmImage: ubuntu-latest
-
-  steps:
+steps:
 - task: PipelineTerraformInstaller@1
   inputs:
-    terraformVersion: 'latest'
+    terraformVersion: '1.13.5'
 
-steps:
+
 - task: PipelineTerraformTask@5
   displayName: Terraform Init
   inputs:
