@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -13,20 +14,13 @@ steps:
   displayName: Terraform Init
   inputs:
     command: 'init'
-    allowTelemetryCollection: true
-
-- task: TerraformCLI@0
-  displayName: Terraform Plan
-  inputs:
-    command: 'plan'
-    environmentServiceName: 'youtube-app-service-connection'
     allowTelemetryCollection: false
 
-- task: TerraformCLI@0
-  displayName: Terraform Apply
+- task: PipelineTerraformTask@5
   inputs:
-    command: 'apply'
-    environmentServiceName: 'youtube-app-service-connection'
-    allowTelemetryCollection: true
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'Azure subscription 1(70afab57-e956-4f72-af85-7a5e7b815620)'
+
 
 
