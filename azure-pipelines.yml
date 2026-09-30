@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: TerraformCLI@0
+- task: PipelineTerraformTask@5
   displayName: Terraform Init
   inputs:
     command: 'init'
