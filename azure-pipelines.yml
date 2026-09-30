@@ -17,9 +17,20 @@ steps:
 #     sudo apt-get install -y terraform
 #     terraform version
 #   displayName: Install Terraform
+# - task: PipelineTerraformInstaller@1
+#   inputs:
+#     terraformVersion: '1.13.5'
+
 - task: PipelineTerraformInstaller@1
   inputs:
-    terraformVersion: '1.13.5'
+    binary: 'terraform'
+    terraformVersion: 'latest'
+    downloadSource: 'hashicorp'
+
+# - task: TerraformInstaller@1
+#   displayName: Install Terraform 1.13.5
+#   inputs:
+#     terraformVersion: '1.13.5'
 
 
 - task: PipelineTerraformTask@5
